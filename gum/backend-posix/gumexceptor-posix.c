@@ -268,10 +268,10 @@ gum_exceptor_backend_attach (GumExceptorBackend * self)
 
   gum_interceptor_begin_transaction (interceptor);
 
-  gum_interceptor_replace (interceptor, gum_original_signal,
-      gum_exceptor_backend_replacement_signal, self, NULL);
-  gum_interceptor_replace (interceptor, gum_original_sigaction,
-      gum_exceptor_backend_replacement_sigaction, self, NULL);
+  // gum_interceptor_replace (interceptor, gum_original_signal,
+  //     gum_exceptor_backend_replacement_signal, self, NULL);
+  // gum_interceptor_replace (interceptor, gum_original_sigaction,
+  //     gum_exceptor_backend_replacement_sigaction, self, NULL);
 
   gum_interceptor_end_transaction (interceptor);
 }
@@ -284,8 +284,8 @@ gum_exceptor_backend_detach (GumExceptorBackend * self)
 
   gum_interceptor_begin_transaction (interceptor);
 
-  gum_interceptor_revert (interceptor, gum_original_signal);
-  gum_interceptor_revert (interceptor, gum_original_sigaction);
+  // gum_interceptor_revert (interceptor, gum_original_signal);
+  // gum_interceptor_revert (interceptor, gum_original_sigaction);
 
   gum_interceptor_end_transaction (interceptor);
 

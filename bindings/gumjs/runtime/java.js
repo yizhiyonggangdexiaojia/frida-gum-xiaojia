@@ -1,1 +1,1 @@
-Frida._java = require('frida-java-bridge');
+Frida._java = null;

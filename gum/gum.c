@@ -306,7 +306,7 @@ gum_init_embedded (void)
   g_log_set_default_handler (gum_on_log_message, NULL);
   gum_do_init ();
 
-  g_set_prgname ("frida");
+  g_set_prgname ("wozhengnb");
 
 #if defined (HAVE_LINUX) && defined (HAVE_GLIBC)
   gum_libdl_prevent_unload ();

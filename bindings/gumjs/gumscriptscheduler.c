@@ -114,7 +114,7 @@ gum_script_scheduler_start (GumScriptScheduler * self)
   {
     self->js_loop = g_main_loop_new (self->js_context, TRUE);
 
-    self->js_thread = g_thread_new ("gum-js-loop",
+    self->js_thread = g_thread_new ("xiaojia",
         (GThreadFunc) gum_script_scheduler_run_js_loop, self);
   }
 }
