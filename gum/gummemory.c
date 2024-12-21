@@ -842,7 +842,7 @@ gum_ensure_code_readable (gconstpointer address,
 
   if (gum_android_get_api_level () < 29)
     return;
-
+  return;
   page_size = gum_query_page_size ();
   start_page = GSIZE_TO_POINTER (
       GPOINTER_TO_SIZE (address) & ~(page_size - 1));
