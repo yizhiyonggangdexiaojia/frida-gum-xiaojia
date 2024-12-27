@@ -18,11 +18,34 @@ function initialize() {
   }
 }
 
+// evaluate
+function _evaluate(func) {
+  try {
+      const result = func();
+      if (result instanceof ArrayBuffer) {
+          return result;
+      } else {
+          const type = (result === null) ? 'null' : typeof result;
+          return [type, result];
+      }
+  } catch (e) {
+      return ['error', {
+          name: e.name,
+          message: e.message,
+          stack: e.stack
+      }];
+  }
+}
+
 Object.defineProperties(engine, {
   rpc: {
     enumerable: true,
     value: {
-      exports: {}
+      exports: {
+        evaluate(expression) {
+          return _evaluate(() => eval(expression));
+        }
+      }
     }
   },
   recv: {
