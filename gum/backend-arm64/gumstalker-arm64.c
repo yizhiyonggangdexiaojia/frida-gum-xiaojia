@@ -2150,7 +2150,13 @@ gum_exec_ctx_new (GumStalker * stalker,
   GumSlowSlab * slow_slab;
   GumDataSlab * data_slab;
 
-  base = gum_memory_allocate (NULL, stalker->ctx_size, stalker->page_size,
+  // 修改原本的
+  // base = gum_memory_allocate (NULL, stalker->ctx_size, stalker->page_size,
+  //     stalker->is_rwx_supported ? GUM_PAGE_RWX : GUM_PAGE_RW);
+  // https://github.com/frida/frida-gum/issues/793
+  base = gum_memory_allocate (NULL, INT32_MAX, stalker->page_size, GUM_PAGE_RW);
+  gum_memory_free(base,INT32_MAX);
+  base = gum_memory_allocate (base + INT32_MAX / 2, stalker->ctx_size, stalker->page_size,
       stalker->is_rwx_supported ? GUM_PAGE_RWX : GUM_PAGE_RW);
 
   ctx = (GumExecCtx *) base;
