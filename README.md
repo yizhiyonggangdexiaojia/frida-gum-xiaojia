@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/yizhiyonggangdexiaojia/frida-g
 ### build
 
 ```sh
-./configcure --host=anrdoid-arm64
+./configure --host=android-arm64
 
 devkits编译
 ./configure --host=android-arm64 -- -Ddevkits=gum,gumjs -Dgumjs=enabled
@@ -21,8 +21,8 @@ make
 
 ### 修补
 ```
-去除默认libc下的hook
-去除Java的api，需要请自行编译_agent.js进行使用
-去除gum-js-loop改为xiaojia
+frida-java-bridge修改为frida-java-bridge-xiaojia，默认为直接修改Artethod的方式
+如果出现问题找到bindings/gumjs/runtime/frida-java-bridge-xiaojia，把里面的android.js替换为此项目中的branch的hookGetOatQuickMethodHeader_android.js
+添加相关子项目等
 ```
 

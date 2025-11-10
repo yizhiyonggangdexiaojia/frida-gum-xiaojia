@@ -64,6 +64,11 @@ def generate_runtime(output_dir, priv_dir, input_dir, gum_dir, capstone_incdir, 
         shutil.rmtree(runtime_intdir)
     shutil.copytree(runtime_srcdir, runtime_intdir)
 
+    subprocess.run([npm, "install"],
+                    capture_output=True,
+                    cwd=priv_dir / "runtime" / "frida-java-bridge-xiaojia",
+                    check=True)
+
     call_compiler = lambda *args: subprocess.run([frida_compile, *args], cwd=priv_dir, check=True)
 
     if "qjs" in backends:

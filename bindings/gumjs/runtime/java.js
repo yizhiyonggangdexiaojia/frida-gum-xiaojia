@@ -1,1 +1,1 @@
-Frida._java = null;
+Frida._java = require("./frida-java-bridge-xiaojia");

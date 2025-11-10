@@ -1,3 +1,6 @@
 [submodule "releng"]
 	path = releng
 	url = https://github.com/frida/releng.git
+[submodule "bindings/gumjs/runtime/frida-java-bridge-xiaojia"]
+	path = bindings/gumjs/runtime/frida-java-bridge-xiaojia
+	url = https://github.com/yizhiyonggangdexiaojia/frida-java-bridge-xiaojia
