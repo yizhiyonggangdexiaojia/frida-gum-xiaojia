@@ -6,6 +6,11 @@
 git clone --recurse-submodules https://github.com/yizhiyonggangdexiaojia/frida-gum-xiaojia.git
 ```
 
+如果只需要js不需要repo(frida-core)
+
+```
+git submodule update --init --depth 1 bindings/gumjs/runtime/frida-java-bridge-xiaojia
+```
 
 
 ### build
